@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.app {
+  height: 102vh;
+  background-image: linear-gradient(-225deg, #d8b6d8 0%, #8055e2 100%);
+}
+.alert {
+  opacity: 0.9;
+  font-weight: 300;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-left: 30vw;
+  color: #333;
+  padding-top: 20px;
+  width: 40vw;
+  height: 8vh;
+  text-align: center;
+}
+.alert-danger {
+  background: red;
+  color: #fff;
+}
+.alert-success {
+  background: darkgreen;
+  color: #fff;
+}
