@@ -1,14 +1,15 @@
 import React from "react";
-import { Grid, Header, Icon, Dropdown } from "semantic-ui-react";
-import { auth } from "../../Firebase";
+import { connect } from "react-redux";
+import { Grid, Header, Icon, Dropdown, Image } from "semantic-ui-react";
+import { auth } from "../../../Firebase";
 
-const UserPanel = () => {
+const UserPanel = ({ user }) => {
   const dropdownOptions = () => [
     {
       key: "user",
       text: (
         <span>
-          Signed in as <strong>{"Akash Sahu"}</strong>
+          Signed in as <strong>{user.displayName}</strong>
         </span>
       ),
       disabled: true,
@@ -35,11 +36,23 @@ const UserPanel = () => {
 
         {/* User Dropdown  */}
         <Header style={{ padding: "0.25em" }} as="h4" inverted>
-          <Dropdown trigger={<span>User</span>} options={dropdownOptions()} />
+          <Dropdown
+            trigger={
+              <span>
+                <Image src={user.photoURL} spaced="right" avatar />
+                {user.displayName}
+              </span>
+            }
+            options={dropdownOptions()}
+          />
         </Header>
       </Grid.Column>
     </Grid>
   );
 };
 
-export default UserPanel;
+const mapStateToProps = (state) => ({
+  user: state.auth.user,
+});
+
+export default connect(mapStateToProps)(UserPanel);

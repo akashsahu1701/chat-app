@@ -5,7 +5,7 @@ import "semantic-ui-css/semantic.min.css";
 import "./components/App.css";
 import App from "./components/App";
 import Alert from "./components/Alert";
-import Dashboard from "./components/layout/Dashboard";
+import Dashboard from "./components/layout/Dashboard/Dashboard";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 //  Redux

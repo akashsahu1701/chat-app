@@ -2,9 +2,8 @@ import React, { Fragment } from "react";
 import { Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Button, Grid, Icon } from "semantic-ui-react";
-import Spinner from "./Spinner";
-import { auth } from "../../Firebase";
+import { Grid } from "semantic-ui-react";
+import Spinner from "../../layout/Spinner";
 import ColorPanel from "./ColorPanel";
 import SidePanel from "./SidePanel";
 import Messages from "./Messages";
@@ -14,9 +13,6 @@ const Dashboard = ({ loading, isAuthenticated }) => {
   if (!isAuthenticated) {
     return <Redirect to="/" />;
   }
-  const logOut = () => {
-    auth.signOut();
-  };
   return loading ? (
     <Spinner />
   ) : (
