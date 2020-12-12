@@ -28,6 +28,6 @@ var firebaseConfig = {
 
 const app = firebase.initializeApp(firebaseConfig);
 export const auth = app.auth();
-export const database = app.database().ref("/chats");
+export const database = app.database();
 export const storage = app.storage();
 export default app;

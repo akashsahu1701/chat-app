@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Grid, Header, Icon, Dropdown, Image } from "semantic-ui-react";
 import { auth } from "../../../Firebase";
+import Channel from "../channel/Channel";
 
 const UserPanel = ({ user }) => {
   const dropdownOptions = () => [
@@ -46,6 +47,7 @@ const UserPanel = ({ user }) => {
             options={dropdownOptions()}
           />
         </Header>
+        <Channel />
       </Grid.Column>
     </Grid>
   );
