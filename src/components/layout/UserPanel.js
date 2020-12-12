@@ -1,13 +1,14 @@
 import React from "react";
 import { Grid, Header, Icon, Dropdown } from "semantic-ui-react";
+import { auth } from "../../Firebase";
 
 const UserPanel = () => {
-  dropdownOptions = () => [
+  const dropdownOptions = () => [
     {
       key: "user",
       text: (
         <span>
-          Signed in as <strong>User</strong>
+          Signed in as <strong>{"Akash Sahu"}</strong>
         </span>
       ),
       disabled: true,
@@ -18,7 +19,7 @@ const UserPanel = () => {
     },
     {
       key: "signout",
-      text: <span>Sign Out</span>,
+      text: <span onClick={() => auth.signOut()}>Sign Out</span>,
     },
   ];
   return (
@@ -28,16 +29,13 @@ const UserPanel = () => {
           {/* App Header */}
           <Header inverted floated="left" as="h2">
             <Icon name="code" />
-            <Header.Content>DevChat</Header.Content>
+            <Header.Content>Chat</Header.Content>
           </Header>
         </Grid.Row>
 
         {/* User Dropdown  */}
         <Header style={{ padding: "0.25em" }} as="h4" inverted>
-          <Dropdown
-            trigger={<span>User</span>}
-            options={this.dropdownOptions()}
-          />
+          <Dropdown trigger={<span>User</span>} options={dropdownOptions()} />
         </Header>
       </Grid.Column>
     </Grid>
